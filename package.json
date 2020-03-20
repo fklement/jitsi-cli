@@ -1,0 +1,29 @@
+{
+  "name": "jitsi",
+  "version": "1.0.0",
+  "description": "A CLI to start jitsi session in your browser",
+  "bin": {
+    "jitsi": "bin/jitsi"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "cli",
+    "jitsi"
+  ],
+  "author": "Felix Klement",
+  "license": "MIT",
+  "dependencies": {
+    "arg": "^4.1.3",
+    "boxen": "^4.2.0",
+    "clipboardy": "^2.3.0",
+    "esm": "^3.2.25",
+    "inquirer": "^7.1.0",
+    "opener": "^1.5.1",
+    "zombie": "^6.1.4"
+  }
+}
