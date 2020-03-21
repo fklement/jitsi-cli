@@ -1,24 +1,21 @@
-import arg from "arg";
-import inquirer from "inquirer";
+const arg = require("arg");
+const inquirer = require("inquirer");
 const clipboardy = require("clipboardy");
 const opener = require("opener");
 const boxen = require("boxen");
-import { generateRoomName } from "./roomNameGenerator";
+const generateRoomName = require("./roomNameGenerator");
 
 function parseArgumentsIntoOptions(rawArgs) {
-  const args = arg(
-    {
-      "--help": Boolean,
-      "--pattern": String,
-      "--clipboard": Boolean,
-      "-c": "--clipboard",
-      "-p": "--pattern",
-      "-h": "--help"
-    },
-    {
-      argv: rawArgs.slice(2)
-    }
-  );
+  const args = arg({
+    "--help": Boolean,
+    "--pattern": String,
+    "--clipboard": Boolean,
+    "-c": "--clipboard",
+    "-p": "--pattern",
+    "-h": "--help"
+  }, {
+    argv: rawArgs.slice(2)
+  });
   return {
     help: args["--help"] || false,
     pattern: args["--pattern"] || false,
@@ -32,11 +29,10 @@ async function promptForMissingOptions(options) {
     console.log(
       boxen(
         "🧪 How to use the jitsi-cli tool:\n\n" +
-          "<roomName>:\n Uses the given <roomName> as input for creating the room\n\n" +
-          "--clipboard or -c:\n Copies the generated jitsi room URL into your clipboard.\n\n" +
-          "--pattern <selectedPattern> or -p <selectedPattern>:\n Select the desired generation pattern.\n" +
-          " <selectedPattern> = [beautifulFungiOrSpaghetti, amazinglyScaryToy,\n neitherTrashNorRifle, eitherCopulateOrInvestigate, wolvesComputeBadly,\n uniteFacilitateAndMerge, nastyWitchesAtThePub, defaultPattern]",
-        {
+        "<roomName>:\n Uses the given <roomName> as input for creating the room\n\n" +
+        "--clipboard or -c:\n Copies the generated jitsi room URL into your clipboard.\n\n" +
+        "--pattern <selectedPattern> or -p <selectedPattern>:\n Select the desired generation pattern.\n" +
+        " <selectedPattern> = [beautifulFungiOrSpaghetti, amazinglyScaryToy,\n neitherTrashNorRifle, eitherCopulateOrInvestigate, wolvesComputeBadly,\n uniteFacilitateAndMerge, nastyWitchesAtThePub, defaultPattern]", {
           padding: 1,
           margin: 1,
           borderStyle: "round"
@@ -51,8 +47,7 @@ async function promptForMissingOptions(options) {
       type: "list",
       name: "pattern",
       message: "Please choose which pattern you would like",
-      choices: [
-        {
+      choices: [{
           name: "🍝 Beautiful Fungi Or Spaghetti",
           value: "beautifulFungiOrSpaghetti"
         },
@@ -102,7 +97,7 @@ async function promptForMissingOptions(options) {
   };
 }
 
-export async function cli(args) {
+exports.start = async function (args) {
   let slug = "";
   let boxenOptions = {
     padding: 1,
@@ -127,7 +122,7 @@ export async function cli(args) {
     process.exit();
   }
 
-  if (!options.roomName) slug = generateRoomName(options.pattern);
+  if (!options.roomName) slug = generateRoomName.generateRoomName(options.pattern);
   else slug = options.roomName;
   let jitsiURL = "https://meet.jit.si/" + slug;
 

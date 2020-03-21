@@ -1,4 +1,4 @@
-import { randomElement } from "./randomUtil";
+const rnd = require("./randomUtil");
 
 // TODO: think of some more nouns
 const _NOUN_ = ["Cat", "Mountain", "Speaker", "Snow", "Rain", "Ship"];
@@ -726,17 +726,17 @@ const PATTERNS = {
  *
  * @returns {string} A newly-generated room name.
  */
-export function generateRoomName(pattern) {
+exports.generateRoomName = function (pattern) {
   // XXX Note that if more than one pattern is available, the choice of 'name'
   // won't have a uniform distribution amongst all patterns (names from
   // patterns with fewer options will have higher probability of being chosen
   // that names from patterns with more options).
-  let name = randomElement(PATTERNS[pattern]);
+  let name = rnd.randomElement(PATTERNS[pattern]);
 
   while (_hasTemplate(name)) {
     for (const template in CATEGORIES) {
       // eslint-disable-line guard-for-in
-      const word = randomElement(CATEGORIES[template]);
+      const word = rnd.randomElement(CATEGORIES[template]);
 
       name = name.replace(template, word);
     }
@@ -763,4 +763,3 @@ function _hasTemplate(s) {
 
   return false;
 }
-

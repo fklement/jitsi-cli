@@ -1,4 +1,4 @@
-<p align=center><img src="logo.png" width="350px"></p>
+<p align=center><img src="https://github.com/fklement/jitsi-cli/blob/master/logo.png?raw=true" width="350px"></p>
 
 
 [![npm version](https://img.shields.io/npm/v/jitsi)](https://www.npmjs.com/package/jitsi)
@@ -42,7 +42,7 @@ After installing it, run jitsi --help without arguments to see list of options.
 
 ## General Informations
 
-I started to develop this CLI-Tool because I really love Jitsi and use it a lot in my daily life. Since I mainly work with the terminal, I found it useful to start a jitsi-meet session quickly with one command. Feel free to add more useful things to this tool (e.g. more name generators).
+I started to develop this CLI-Tool because I really love jitsi and use it a lot in my daily life. Since I mainly work with the terminal, I found it useful to start a jitsi-meet session quickly with one command. Feel free to add more useful things to this tool (e.g. more name generators).
 
 ## Release notes
 

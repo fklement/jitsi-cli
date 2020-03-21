@@ -1,0 +1,19 @@
+language: node_js
+node_js:
+- node
+install:
+- npm install -g pkg
+script:
+- pkg start.js --targets node12-macos-x64,node12-linux-x64,node12-win-x64
+deploy:
+  provider: releases
+  api_key:
+    secure: gDGtW7UOAyRGGnDG5znyUFdhgroNEDfp+t5609iCQxfzIukzbOcMYdjV1p9u+M6i+WnlsyipoQuoamUobFq08Fll+Am7FlxIyqO86G+PxfRs31cQesJsShZYZcWybDRMmCseFxYFdDxIfzRvqRfouUH/QyXUMAnDOH1K3yZa/kRfsA1OzRz4TPck1vqTfvao15An+WGGATTmQWUXvfU/CvXvL8DHpIr1mtYmiDQwfmvIEK1j8Ok4taMXJP/xSQyyYbrFZ6wp33SqDZxa6sDdjrlKHx/9wpCpVxnY/BATPkoxihA31DBiBVquTgaE0yZr4piubeA/Ds54qOlEw0PBr/s/+G6IvCe5JLJDYIMa/ns+fFoaMAFi2VM89io36zvqSkT95uC+DqY/YhaSBDgHvlry183svK2Ljx/qAkVT9egU+nwhgobL4btZd0HgBF8We9/fDgXPcMvS9RbqQxefc/Kezm/TdDXB55KZ/ferF4sQUrGJIgezBQHiCtabQ/x509wfV7VHIx3AOCR25RsL/1vDp93SPJVb/+VwZ4aGz+dTKYgv9E4zCS9MpO6zCgTEGapR5Q/lfGrlxATz1yPwMG4pbWcjgrA2MI3IUCy9nzClSk2TsF9aF6Z/7t8OIMZ1zZq8MvML+uKxRdsxxg/qEtX8UPR3YdkBIMgo4Ye2cu4=
+  file:
+    - jitsi-linux
+    - jitsi-macos
+    - jisti-win.exe
+  skip_cleanup: true
+  on:
+    repo: fklement/jitsi-cli
+    tags: true
