@@ -9,10 +9,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/fklement/jitsi-cli.git"
+    "url": "git://github.com/fklement/jitsi-cli.git"
   },
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com/",
+    "registry": "https://npm.pkg.github.com/fklement",
     "access": "public"
   },
   "scripts": {
