@@ -2,8 +2,7 @@
 
 
 [![npm version](https://img.shields.io/npm/v/jitsi)](https://www.npmjs.com/package/jitsi)
-[![npm bundle size (minified)](https://img.shields.io/bundlephobia/min/jitsi)](https://github.com/fklement/jitsi-cli)
-
+[![Build Status](https://travis-ci.com/fklement/jitsi-cli.svg?branch=master)](https://travis-ci.com/fklement/jitsi-cli)
 
 
 A small and simple CLI for `jitsi-meet` written in [node.js](https://nodejs.org/en/).

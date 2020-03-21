@@ -4,7 +4,7 @@ node_js:
 install:
 - npm install -g pkg
 script:
-- pkg start.js --targets node12-macos-x64,node12-linux-x64,node12-win-x64
+- pkg jitsi.js --targets node12-macos-x64,node12-linux-x64,node12-win-x64
 deploy:
   provider: releases
   api_key:
