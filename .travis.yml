@@ -2,6 +2,7 @@ language: node_js
 node_js:
 - node
 install:
+- npm install
 - npm install -g pkg
 script:
 - pkg jitsi.js --targets node12-macos-x64,node12-linux-x64,node12-win-x64
