@@ -13,7 +13,7 @@ deploy:
   file:
     - jitsi-linux
     - jitsi-macos
-    - jisti-win.exe
+    - jitsi-win.exe
   skip_cleanup: true
   on:
     repo: fklement/jitsi-cli

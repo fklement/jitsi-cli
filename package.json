@@ -12,6 +12,7 @@
     "url": "https://github.com/fklement/jitsi-cli.git"
   },
   "publishConfig": {
+    "registry": "https://npm.pkg.github.com/",
     "access": "public"
   },
   "scripts": {
@@ -36,4 +37,3 @@
     "email": "mail@felix-klement.de"
   }
 }
-
