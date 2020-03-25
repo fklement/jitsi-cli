@@ -34,10 +34,15 @@ After installing it, run jitsi --help without arguments to see list of options.
 
 --pattern <selectedPattern> or -p <selectedPattern>:
  Select the desired generation pattern.
- <selectedPattern> = [beautifulFungiOrSpaghetti, amazinglyScaryToy,
+ <selectedPattern> = [cryptoRandomString, beautifulFungiOrSpaghetti, amazinglyScaryToy,
  neitherTrashNorRifle, eitherCopulateOrInvestigate, wolvesComputeBadly
  uniteFacilitateAndMerge, nastyWitchesAtThePub, defaultPattern]
 ```
+
+## Pre-build executable
+We are pre-building executables for the cli tool that you can use in MacOS, Linux and Windows. For building the executable we are using the single-command node.js binary compiler called Pkg from zeit. This command line interface enables us to package the complete project into an executable that then can be run even on devices without node.js installed. Thanks to Travis-CI this perfectly integrates into the deployment pipeline, which means that on every push to the master branch a new release is created and pushed into the release section.    
+
+You can find the latest release here: https://github.com/fklement/jitsi-cli/releases/latest
 
 ## General Informations
 

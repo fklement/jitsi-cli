@@ -1,4 +1,5 @@
 const rnd = require("./randomUtil");
+const cryptoRandomString = require("crypto-random-string");
 
 // TODO: think of some more nouns
 const _NOUN_ = ["Cat", "Mountain", "Speaker", "Snow", "Rain", "Ship"];
@@ -726,24 +727,28 @@ const PATTERNS = {
  *
  * @returns {string} A newly-generated room name.
  */
-exports.generateRoomName = function (pattern) {
+exports.generateRoomName = function(pattern) {
   // XXX Note that if more than one pattern is available, the choice of 'name'
   // won't have a uniform distribution amongst all patterns (names from
   // patterns with fewer options will have higher probability of being chosen
   // that names from patterns with more options).
-  let name = rnd.randomElement(PATTERNS[pattern]);
+  let name = "";
+  if (pattern == "cryptoRandomString") {
+    name = cryptoRandomString({ length: 25, type: "url-safe" });
+  } else {
+    name = rnd.randomElement(PATTERNS[pattern]);
 
-  while (_hasTemplate(name)) {
-    for (const template in CATEGORIES) {
-      // eslint-disable-line guard-for-in
-      const word = rnd.randomElement(CATEGORIES[template]);
+    while (_hasTemplate(name)) {
+      for (const template in CATEGORIES) {
+        // eslint-disable-line guard-for-in
+        const word = rnd.randomElement(CATEGORIES[template]);
 
-      name = name.replace(template, word);
+        name = name.replace(template, word);
+      }
     }
   }
-
   return name;
-}
+};
 
 /**
  * Determines whether a specific string contains at least one of the
